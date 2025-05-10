@@ -1,0 +1,70 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+main {
+	width: 80%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+input, button, select {
+	font-size: 1.4em;
+}
+
+#chat-input {
+	position: fixed;
+	bottom: 0;
+	width: 80%;
+	display: flex;
+	flex-direction: row;
+}
+
+#message-input {
+	flex: 9;
+}
+
+#send {
+	flex: 1;
+}
+
+#chat {
+	height: 100%;
+}
+
+#messages {
+	flex: 9;
+	background-color: #eee;
+	padding: 8px;
+	margin-bottom: 34px;
+}
+
+.message {
+	border-radius: 8px;
+	border: 1px solid #666;
+	padding: 8px;
+	background-color: #fdfdfd;
+	display: flex;
+	margin-bottom: 8px;
+}
+
+.message_body {
+	padding-left: 32px;
+}
+
+.username {
+	margin: 0;
+	color: #aaa;
+}
+
+.message_content {
+	margin: 0;
+}

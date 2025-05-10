@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ChattyApp</title>
+    <!-- Recommended meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- PyScript CSS -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.2.1/core.css">
+    <!-- This script tag bootstraps PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2025.2.1/core.js"></script>
+    <!-- Site specific CSS -->
+    <link rel="stylesheet" href="./static/chatty.css">
+  </head>
+  <body>
+    <script type="mpy" src="./static/main.py"></script>
+    <main>
+      <div id="register">
+        <h1>ChattyApp 💬</h1>
+        <input id="user_id" type="text" placeholder="Your name...">
+        <select id="avatar_select">
+          <option value="1">🤖</option>
+          <option value="2">🧌</option>
+          <option value="3">👽</option>
+          <option value="4">🐱</option>
+          <option value="5">🧑</option>
+        </select>
+        <button id="connect">Connect</button>
+      </div>
+      <div id="chat" hidden="">
+        <div id="messages"></div>
+        <div id="chat-input">
+          <input id="message-input" type="text" placeholder="Type here...">
+          <button id="send">Send ➡️</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
