@@ -127,7 +127,7 @@ async def connect_to_chat(e):
     chat.style["display"] = "flex"
     # Create the expected URL for the websocket connection.
     loc = window.location
-    protocol = "wss:" if loc.protocol == "https" else "ws:"
+    protocol = "wss:" if loc.protocol == "https:" else "ws:"
     url = f"{protocol}//{loc.host}/ws"
     # print(url)  # Debug to browser console to check correct value.
     # Connect to the server's web-socket, via the expected URL.
