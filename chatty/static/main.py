@@ -62,7 +62,7 @@ def on_open(e):
 def on_message(e):
     """
     Called when we receive a message from the server. The `e` event's data
-    contains a strong containing the actual data.
+    contains a string containing the actual data.
     """
     # print(e.data)  # Log to browser console for debugging purposes.
     # The data contains a JSON payload containing the sender's name (id) and
