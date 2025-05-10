@@ -35,4 +35,48 @@ in the browser with PyScript. 🛠️
 
 PRs welcome. 🤗
 
+## PythonAnywhere Deployment
+
+When demonstrating this app, we host it with the lovely folks at
+[PythonAnywhere](https://pythonanywhere.com). Here are the steps we use to
+deploy the application. We assume you already have an account with a
+`<USERNAME>` associated with it. By the end of these steps you'll have a
+version of this site running at `<USERNAME>.pythonanywhere.com`.
+
+* If you have not done so already, you must create a PythonAnywhere API token.
+  This is easy to do via
+  [these instructions](https://help.pythonanywhere.com/pages/GettingYourAPIToken).
+* Make sure you don't already have a website running at
+  `<USERNAME>.pythonanywhere.com`. If you do, delete it.
+* Open a fresh Bash console from your PythonAnywhere dashboard.
+* From your home directory, clone the ChattyApp from GitHub:
+  `git clone https://github.com/ntoll/chattyapp.git`
+* In the new Bash console, install the command line tools:
+  `pip install --upgrade pythonanywhere` (if you see errors, ignore them).
+* Create a new virtual environment: `mkvirtualenv chatty --python=python3.10`
+* Change into the `chattyapp` directory that was created when you cloned the
+  app from GitHub: `cd chattyapp`
+* Install the app's dependencies: `pip install -r requirements.txt`
+* Install `uvicorn` (used to serve the app): `pip install "uvicorn[standard]"`
+* Ensure you have a site _command_, used to start the server. You should use
+  the following command but with `<USERNAME>` replaced with your actual
+  username:
+  `/home/<USERNAME>/.virtualenvs/chatty/bin/uvicorn --app-dir /home/<USERNAME>/chatty --uds ${DOMAIN_SOCKET} chatty.app:app`
+* Create your website, and ensure `<USERNAME>` is replaced with your actual
+  username. Also ensure `<COMMAND>` is replace with the command worked out in
+  the previous step: `pa website create --domain <USERNAME>.pythonanywhere.com --command '<COMMAND>'`
+* If everything was a success you should see a message like this:
+
+```
+< All done! Your site is now live at <USERNAME>.pythonanywhere.com. >
+   \
+    ~<:>>>>>>>>>
+```
+
+* To see details of your website: `pa website get --domain <USERNAME>.pythonanywhere.com`
+* To restart/reload your website: `pa website reload --domain <USERNAME>.pythonanywhere.com`
+* To delete your website: `pa website delete --domain <USERNAME>.pythonanywhere.com`
+* If you encounter any problems, please check out the log files from the
+  "Files" page in your PythonAnywhere console.
+
 That's it. 🚀
