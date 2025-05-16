@@ -45,6 +45,7 @@ input, button, select {
 	background-color: #eee;
 	padding: 8px;
 	margin-bottom: 34px;
+    overflow: auto;
 }
 
 .message {

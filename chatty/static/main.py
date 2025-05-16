@@ -76,6 +76,8 @@ def on_message(e):
     # Add the message to the DOM.
     messages = page.find("#messages")[0]
     messages.append(msg_container)
+    # Make sure it's visible.
+    messages._dom_element.scrollTop = messages.scrollHeight
     # That's literally all it is! :-)
 
 
@@ -136,6 +138,8 @@ async def connect_to_chat(e):
     # Connect the required event handlers.
     socket.onopen = on_open
     socket.onmessage = on_message
+    # Focus on message input.
+    page.find("#message-input")[0].focus()
 
 
 @when("click", "#send")
@@ -155,5 +159,15 @@ async def send_chat(e):
     msg_input.style["background-color"] = "#fff"
     # Reset the message input.
     msg_input.value = ""
+    # Focus on message input.
+    msg_input.focus()
     # Send it to the server (which will echo it back to us).
     send(msg)
+
+@when("keyup", "#message-input")
+async def check_key(e):
+    """
+    If the Enter key is pressed, send the chat.
+    """
+    if e.key == "Enter":
+        await send_chat(None)
