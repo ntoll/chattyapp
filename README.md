@@ -61,7 +61,7 @@ version of this site running at `<USERNAME>.pythonanywhere.com`.
 * Ensure you have a site _command_, used to start the server. You should use
   the following command but with `<USERNAME>` replaced with your actual
   username:
-  `/home/<USERNAME>/.virtualenvs/chatty/bin/uvicorn --app-dir /home/<USERNAME>/chatty --uds ${DOMAIN_SOCKET} chatty.app:app`
+  `/home/<USERNAME>/.virtualenvs/chatty/bin/uvicorn --app-dir /home/<USERNAME>/chattyapp/ --uds ${DOMAIN_SOCKET} chatty.app:app`
 * Create your website, and ensure `<USERNAME>` is replaced with your actual
   username. Also ensure `<COMMAND>` is replace with the command worked out in
   the previous step: `pa website create --domain <USERNAME>.pythonanywhere.com --command '<COMMAND>'`
