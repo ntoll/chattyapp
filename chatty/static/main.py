@@ -52,6 +52,15 @@ def send(text):
         socket.send(msg)
 
 
+def sanitize(raw):
+    """
+    Returns an HTML safe version of the raw input string.
+    """
+    temp = div()
+    temp.innerText = raw
+    return temp.innerHTML
+
+
 def on_open(e):
     """
     Called when the websocket has successfully connected to the server.
@@ -69,7 +78,7 @@ def on_message(e):
     # the textual content of the message.
     msg = json.loads(e.data)
     sender_id = msg["user_id"]
-    message = msg["message"]
+    message = sanitize(msg["message"])
     avatar = msg["avatar"]
     # Create a new div containing the correctly formatted message.
     msg_container = create_message_container(sender_id, message, avatar)
@@ -163,6 +172,7 @@ async def send_chat(e):
     msg_input.focus()
     # Send it to the server (which will echo it back to us).
     send(msg)
+
 
 @when("keyup", "#message-input")
 async def check_key(e):
